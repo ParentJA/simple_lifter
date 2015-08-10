@@ -25,9 +25,22 @@ THIRD_PARTY_APPS = (
     'rest_framework',
 )
 
-LOCAL_APPS = ()
+LOCAL_APPS = (
+    'exercises',
+)
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+REST_METHODS = {
+    'get': 'list',
+    'post': 'create'
+}
+
+REST_METHODS_PK = {
+    'get': 'retrieve',
+    'put': 'update',
+    'delete': 'destroy'
+}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

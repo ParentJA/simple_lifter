@@ -1,6 +1,11 @@
 (function (window, angular, undefined) {
   "use strict";
 
-  angular.module("app");
+  function exerciseService($http, BASE_URL) {
+
+  }
+
+  angular.module("app")
+    .service("exerciseService", ["$http", "BASE_URL", exerciseService]);
 
 })(window, window.angular);

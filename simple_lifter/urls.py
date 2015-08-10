@@ -11,5 +11,6 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='index.html')),
+    url(r'^api/v1/exercises/', include('exercises.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
