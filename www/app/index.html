@@ -23,7 +23,11 @@
       <a class="navbar-brand" ui-sref="home">Simple Lifter</a>
     </div>
     <div id="navbar-content" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav"></ul>
+      <ul class="nav navbar-nav">
+        <li ng-class="{active: $state.is('exercises')}">
+          <a ui-sref="exercises">Exercises</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

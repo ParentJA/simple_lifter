@@ -1,34 +1,29 @@
 (function (window, angular, undefined) {
   "use strict";
 
-  function MainController($scope) {
+  function MainController($scope) {}
 
-  }
+  function HomeController($scope) {}
 
-  function HomeController($scope, ExerciseDTD, exerciseService) {
+  function ExerciseController($scope, ExerciseFactory, exerciseService) {
     $scope.models = {
-      exercises: [ExerciseDTD],
-      selectedExercise: ExerciseDTD
+      exercises: undefined,
+      selectedExercise: undefined
     };
 
     $scope.getExercises = function getExercises() {
-      exerciseService.list().then(onLoadSuccess);
-
-      function onLoadSuccess(response) {
-        $scope.models.exercises = response.data;
-      }
-    };
-
-    $scope.getExercise = function getExercise(id) {
-      exerciseService.retrieve(id).then(onLoadSuccess);
-
-      function onLoadSuccess(response) {
-        $scope.models.selectedExercise = response.data;
-      }
+      exerciseService.list().then(function (response) {
+        $scope.models.exercises = new ExerciseFactory(response.data);
+        $scope.models.selectedExercise = _.first($scope.models.exercises);
+      });
     };
 
     $scope.hasExercises = function hasExercises() {
       return !_.isEmpty($scope.models.exercises);
+    };
+
+    $scope.isSelectedExercise = function isSelectedExercise(exercise) {
+      return $scope.models.selectedExercise === exercise;
     };
 
     $scope.getSelectedExercise = function getSelectedExercise() {
@@ -48,6 +43,7 @@
 
   angular.module("app")
     .controller("MainController", ["$scope", MainController])
-    .controller("HomeController", ["$scope", "ExerciseDTD", "exerciseService", HomeController]);
+    .controller("HomeController", ["$scope", HomeController])
+    .controller("ExerciseController", ["$scope", "ExerciseFactory", "exerciseService", ExerciseController]);
 
 })(window, window.angular);

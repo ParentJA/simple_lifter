@@ -4,7 +4,7 @@ __author__ = 'jason.a.parent@gmail.com (Jason Parent)'
 from rest_framework import serializers
 
 # Local imports...
-from .models import Exercise, Force, Mechanics, Muscle, Utility
+from .models import Exercise, Force, Mechanics, Muscle, Utility, Workout, WorkoutExercise
 
 
 class UtilitySerializer(serializers.ModelSerializer):
@@ -32,13 +32,20 @@ class MuscleSerializer(serializers.ModelSerializer):
 
 
 class ExerciseSerializer(serializers.ModelSerializer):
-    _utility = UtilitySerializer(source='utility')
-    _mechanics = MechanicsSerializer(source='mechanics')
-    _force = ForceSerializer(source='force')
-    _muscle = MuscleSerializer(source='muscle')
-
     class Meta:
         model = Exercise
         fields = (
-            'id', 'name', '_utility', '_mechanics', '_force', '_muscle', 'preparation', 'execution'
+            'id', 'name', 'utility', 'mechanics', 'force', 'muscle', 'preparation', 'execution'
         )
+
+
+class WorkoutSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Workout
+        fields = ('id', 'name')
+
+
+class WorkoutExerciseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WorkoutExercise
+        fields = ('id', 'workout', 'exercise')

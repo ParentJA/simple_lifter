@@ -21,6 +21,7 @@ DEFAULT_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'debug_toolbar',
     'localflavor',
     'rest_framework',
 )
