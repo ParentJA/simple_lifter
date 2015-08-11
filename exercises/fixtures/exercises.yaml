@@ -1,72 +1,114 @@
-- model: exercises.exercise
+- fields: {execution: Press dumbbells up with elbows to sides until arms are extended.
+      Lower weight to sides of upper chest until slight stretch is felt in chest or
+      shoulder. Repeat., force: 1, mechanics: 4, muscle: 10, name: dumbbell incline
+      bench press, preparation: Sit down on incline bench with dumbbells resting on
+      lower thigh. Kick weights to shoulders and lean back. Position dumbbells to
+      sides of chest with upper arm under each dumbbell., utility: 2}
+  model: exercises.exercise
   pk: 1
-  fields:
-    name: Dumbbell Incline Bench Press
-    utility: Basic or Auxiliary
-    mechanics: Compound
-    force: Push
-    muscle: Pectoralis Major, Clavicular
-    preparation: Sit down on incline bench with dumbbells resting on lower thigh. Kick weights to shoulders and lean
-      back. Position dumbbells to sides of chest with upper arm under each dumbbell.
-    execution: Press dumbbells up with elbows to sides until arms are extended. Lower weight to sides of upper chest
-      until slight stretch is felt in chest or shoulder. Repeat.
-
-- model: exercises.exercise
+- fields: {execution: Pull body up until chin is above bar. Lower body until arms
+      and shoulders are fully extended. Repeat., force: 2, mechanics: 4, muscle: 7,
+    name: pull-up, preparation: Step up and grasp bar with overhand wide grip., utility: 2}
+  model: exercises.exercise
   pk: 2
-  fields:
-    name: Pull-up
-    utility: Basic
-    mechanics: Compound
-    force: Pull
-    muscle: Latissimus Dorsi
-    preparation: Step up and grasp bar with overhand wide grip.
-    execution: Pull body up until chin is above bar. Lower body until arms and shoulders are fully extended. Repeat.
-
-- model: exercises.exercise
+- fields: {execution: Raise upper arms to sides until elbows are shoulder height.
+      Maintain elbows' height above or equal to wrists. Lower and repeat., force: 2,
+    mechanics: 5, muscle: 2, name: dumbbell lateral raise, preparation: Grasp dumbbells
+      in front of thighs with elbows slightly bent. Bend over slightly with hips and
+      knees bent slightly., utility: 2}
+  model: exercises.exercise
   pk: 3
-  fields:
-    name: Dumbbell Lateral Raise
-    utility: Basic or Auxiliary
-    mechanics: Isolated
-    force: Pull
-    muscle: Deltoid, Lateral
-    preparation: Grasp dumbbells in front of thighs with elbows slightly bent. Bend over slightly with hips and knees
-      bent slightly.
-    execution: Raise upper arms to sides until elbows are shoulder height. Maintain elbows' height above or equal to
-      wrists. Lower and repeat.
-
-- model: exercises.exercise
+- fields: {execution: 'With elbows to sides, raise one dumbbell and rotate forearm
+      until forearm is vertical and palm faces shoulder. Lower to original position
+      and repeat with opposite arm. Continue to alternate between sides.', force: 2,
+    mechanics: 5, muscle: 5, name: dumbbell curl, preparation: 'Position two dumbbells
+      to sides, palms facing in, arms straight.', utility: 2}
+  model: exercises.exercise
   pk: 4
-  fields:
-    name: Dumbbell Curl
-    utility: Basic
-    mechanics: Isolated
-    force: Pull
-    muscle: Biceps Brachii
-    preparation: Position two dumbbells to sides, palms facing in, arms straight.
-    execution: With elbows to sides, raise one dumbbell and rotate forearm until forearm is vertical and palm faces
-      shoulder. Lower to original position and repeat with opposite arm. Continue to alternate between sides.
-
-- model: exercises.exercise
+- fields: {execution: Lower body until slight stretch is felt in shoulders. Push body
+      up until arms are straight. Repeat., force: 1, mechanics: 4, muscle: 4, name: triceps
+      dip, preparation: 'Mount shoulder width dip bar, arms straight with shoulders
+      above hands. Keep hips straight.', utility: 2}
+  model: exercises.exercise
   pk: 5
-  fields:
-    name: Triceps Dip
-    utility: Basic
-    mechanics: Compound
-    force: Push
-    muscle: Triceps Brachii
-    preparation: Mount shoulder width dip bar, arms straight with shoulders above hands. Keep hips straight.
-    execution: Lower body until slight stretch is felt in shoulders. Push body up until arms are straight. Repeat.
-
-- model: exercises.exercise
+- fields: {execution: Raise torso from bench by bending waist and hips. Return until
+      back of shoulders contact incline board. Repeat., force: 2, mechanics: 4, muscle: 12,
+    name: incline sit-up, preparation: Hook feet under support and lie supine on incline
+      bench with hips bent. Place hands behind neck or on side of neck., utility: 2}
+  model: exercises.exercise
   pk: 6
-  fields:
-    name: Incline Sit-up
-    utility: Basic
-    mechanics: Compound
-    force: Pull
-    muscle: Rectus Abdominus
-    preparation: Hook feet under support and lie supine on incline bench with hips bent. Place hands behind neck or
-      on side of neck.
-    execution: Raise torso from bench by bending waist and hips. Return until back of shoulders contact incline board.
-      Repeat.
+- fields: {description: auxiliary}
+  model: exercises.utility
+  pk: 1
+- fields: {description: basic}
+  model: exercises.utility
+  pk: 2
+- fields: {description: specialized}
+  model: exercises.utility
+  pk: 3
+- fields: {description: compound}
+  model: exercises.mechanics
+  pk: 4
+- fields: {description: isolated}
+  model: exercises.mechanics
+  pk: 5
+- fields: {description: push}
+  model: exercises.force
+  pk: 1
+- fields: {description: pull}
+  model: exercises.force
+  pk: 2
+- fields: {description: 'deltoid, anterior'}
+  model: exercises.muscle
+  pk: 1
+- fields: {description: 'deltoid, lateral'}
+  model: exercises.muscle
+  pk: 2
+- fields: {description: 'deltoid, posterior'}
+  model: exercises.muscle
+  pk: 3
+- fields: {description: triceps brachii}
+  model: exercises.muscle
+  pk: 4
+- fields: {description: biceps brachii}
+  model: exercises.muscle
+  pk: 5
+- fields: {description: 'back, general'}
+  model: exercises.muscle
+  pk: 6
+- fields: {description: latissimus dorsi}
+  model: exercises.muscle
+  pk: 7
+- fields: {description: teres major}
+  model: exercises.muscle
+  pk: 8
+- fields: {description: 'pectoralis major, sternal'}
+  model: exercises.muscle
+  pk: 9
+- fields: {description: 'pectoralis major, clavicular'}
+  model: exercises.muscle
+  pk: 10
+- fields: {description: pectoralis minor}
+  model: exercises.muscle
+  pk: 11
+- fields: {description: rectus abdominus}
+  model: exercises.muscle
+  pk: 12
+- fields: {description: transverse abdominus}
+  model: exercises.muscle
+  pk: 13
+- fields: {description: obliques}
+  model: exercises.muscle
+  pk: 14
+- fields: {description: gluteus maximus}
+  model: exercises.muscle
+  pk: 15
+- fields: {description: quadriceps}
+  model: exercises.muscle
+  pk: 16
+- fields: {description: hamstrings}
+  model: exercises.muscle
+  pk: 17
+- fields: {description: 'calves, general'}
+  model: exercises.muscle
+  pk: 18

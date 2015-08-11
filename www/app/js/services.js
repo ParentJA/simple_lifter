@@ -2,7 +2,13 @@
   "use strict";
 
   function exerciseService($http, BASE_URL) {
+    this.list = function list() {
+      return $http.get(BASE_URL + "exercises/");
+    };
 
+    this.retrieve = function retrieve(id) {
+      return $http.get(BASE_URL + "exercises/" + id + "/");
+    };
   }
 
   angular.module("app")

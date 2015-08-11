@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Exercises</h4>
+  </div>
+  <div class="panel-body" ng-show="getSelectedExercise()">
+    <h3>{{ models.selectedExercise.name | title }}</h3>
+    <h4>Preparation</h4>
+    <p>{{ models.selectedExercise.preparation }}</p>
+    <h4>Execution</h4>
+    <p>{{ models.selectedExercise.execution }}</p>
+  </div>
+  <table class="table table-hover" ng-show="hasExercises()">
+    <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="exercise in models.exercises" ng-click="setSelectedExercise(exercise)">
+      <td>{{ exercise.name | title }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
