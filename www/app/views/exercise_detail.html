@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Exercise Detail</h4>
+  </div>
+  <div class="panel-body">
+    <h3>{{ selectedExercise.name | title }}</h3>
+    <dl>
+      <dt>Utility</dt>
+      <dd>{{ selectedExercise._utility.description | title }}</dd>
+      <dt>Mechanics</dt>
+      <dd>{{ selectedExercise._mechanics.description | title }}</dd>
+      <dt>Force</dt>
+      <dd>{{ selectedExercise._force.description | title }}</dd>
+      <dt>Muscle</dt>
+      <dd>{{ selectedExercise._muscle.description | title }}</dd>
+    </dl>
+    <h4>Preparation</h4>
+    <p>{{ selectedExercise.preparation }}</p>
+    <h4>Execution</h4>
+    <p>{{ selectedExercise.execution }}</p>
+  </div>
+</div>

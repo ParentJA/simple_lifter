@@ -18,22 +18,6 @@
       });
     };
 
-    $scope.hasExercises = function hasExercises() {
-      return !_.isEmpty($scope.models.exercises);
-    };
-
-    $scope.isSelectedExercise = function isSelectedExercise(exercise) {
-      return $scope.models.selectedExercise === exercise;
-    };
-
-    $scope.getSelectedExercise = function getSelectedExercise() {
-      return $scope.models.selectedExercise;
-    };
-
-    $scope.setSelectedExercise = function setSelectedExercise(value) {
-      return $scope.models.selectedExercise = value;
-    };
-
     function init() {
       $scope.getExercises();
     }
@@ -41,9 +25,27 @@
     init();
   }
 
+  function ExerciseListController($scope) {
+    $scope.isSelectedExercise = function isSelectedExercise(exercise) {
+      return $scope.selectedExercise === exercise;
+    };
+
+    $scope.setSelectedExercise = function setSelectedExercise(value) {
+      return $scope.selectedExercise = value;
+    };
+
+    $scope.hasExercises = function hasExercises() {
+      return !_.isEmpty($scope.exercises);
+    };
+  }
+
+  function ExerciseDetailController($scope) {}
+
   angular.module("app")
     .controller("MainController", ["$scope", MainController])
     .controller("HomeController", ["$scope", HomeController])
-    .controller("ExerciseController", ["$scope", "ExerciseFactory", "exerciseService", ExerciseController]);
+    .controller("ExerciseController", ["$scope", "ExerciseFactory", "exerciseService", ExerciseController])
+    .controller("ExerciseListController", ["$scope", ExerciseListController])
+    .controller("ExerciseDetailController", ["$scope", ExerciseDetailController]);
 
 })(window, window.angular);

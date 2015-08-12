@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Exercise List</h4>
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Utility</th>
+      <th>Mechanics</th>
+      <th>Force</th>
+      <th>Muscle</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-hide="hasExercises()">
+      <td class="text-center" colspan="5">No exercises</td>
+    </tr>
+    <tr ng-repeat="exercise in exercises"
+        ng-class="{active: isSelectedExercise(exercise)}"
+        ng-click="setSelectedExercise(exercise)"
+        ng-show="hasExercises()">
+      <td>{{ exercise.name | title }}</td>
+      <td>{{ exercise._utility.description | title }}</td>
+      <td>{{ exercise._mechanics.description | title }}</td>
+      <td>{{ exercise._force.description | title }}</td>
+      <td>{{ exercise._muscle.description | title }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

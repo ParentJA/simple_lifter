@@ -1,55 +1,8 @@
 <div class="row">
   <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">Exercise List</h4>
-      </div>
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Utility</th>
-          <th>Mechanics</th>
-          <th>Force</th>
-          <th>Muscle</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="exercise in models.exercises"
-            ng-class="{active: isSelectedExercise(exercise)}"
-            ng-click="setSelectedExercise(exercise)">
-          <td>{{ exercise.name | title }}</td>
-          <td>{{ exercise._utility.description | title }}</td>
-          <td>{{ exercise._mechanics.description | title }}</td>
-          <td>{{ exercise._force.description | title }}</td>
-          <td>{{ exercise._muscle.description | title }}</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
+    <div x-exercise-list data-exercises="models.exercises" data-selected-exercise="models.selectedExercise"></div>
   </div>
   <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">Exercise Detail</h4>
-      </div>
-      <div class="panel-body">
-        <h3>{{ models.selectedExercise.name | title }}</h3>
-        <dl>
-          <dt>Utility</dt>
-          <dd>{{ models.selectedExercise._utility.description | title }}</dd>
-          <dt>Mechanics</dt>
-          <dd>{{ models.selectedExercise._mechanics.description | title }}</dd>
-          <dt>Force</dt>
-          <dd>{{ models.selectedExercise._force.description | title }}</dd>
-          <dt>Muscle</dt>
-          <dd>{{ models.selectedExercise._muscle.description | title }}</dd>
-        </dl>
-        <h4>Preparation</h4>
-        <p>{{ models.selectedExercise.preparation }}</p>
-        <h4>Execution</h4>
-        <p>{{ models.selectedExercise.execution }}</p>
-      </div>
-    </div>
+    <div x-exercise-detail data-selected-exercise="models.selectedExercise"></div>
   </div>
 </div>
