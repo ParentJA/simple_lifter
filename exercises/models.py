@@ -64,3 +64,12 @@ class WorkoutExercise(models.Model):
 
     def __unicode__(self):
         return '%s in %s' % (self.exercise, self.workout)
+
+
+class Set(models.Model):
+    workout_exercise = models.ForeignKey('exercises.WorkoutExercise', related_name='sets')
+    min_reps = models.IntegerField()
+    max_reps = models.IntegerField()
+
+    def __unicode__(self):
+        return 'Set (%s to %s) reps for %s' % (self.min_reps, self.max_reps, self.workout_exercise)
