@@ -41,11 +41,50 @@
 
   function ExerciseDetailController($scope) {}
 
+  function WorkoutController($scope, WorkoutFactory, workoutService) {
+    $scope.models = {
+      workouts: undefined,
+      selectedWorkout: undefined
+    };
+
+    $scope.getWorkouts = function getWorkouts() {
+      workoutService.list().then(function (response) {
+        $scope.models.workouts = new WorkoutFactory(response.data);
+        $scope.models.selectedWorkout = _.first($scope.models.workouts);
+      });
+    };
+
+    function init() {
+      $scope.getWorkouts();
+    }
+
+    init();
+  }
+
+  function WorkoutListController($scope) {
+    $scope.isSelectedWorkout = function isSelectedWorkout(workout) {
+      return $scope.selectedWorkout === workout;
+    };
+
+    $scope.setSelectedWorkout = function setSelectedWorkout(value) {
+      return $scope.selectedWorkout = value;
+    };
+
+    $scope.hasWorkouts = function hasWorkouts() {
+      return !_.isEmpty($scope.workouts);
+    };
+  }
+
+  function WorkoutDetailController($scope) {}
+
   angular.module("app")
     .controller("MainController", ["$scope", MainController])
     .controller("HomeController", ["$scope", HomeController])
     .controller("ExerciseController", ["$scope", "ExerciseFactory", "exerciseService", ExerciseController])
     .controller("ExerciseListController", ["$scope", ExerciseListController])
-    .controller("ExerciseDetailController", ["$scope", ExerciseDetailController]);
+    .controller("ExerciseDetailController", ["$scope", ExerciseDetailController])
+    .controller("WorkoutController", ["$scope", "WorkoutFactory", "workoutService", WorkoutController])
+    .controller("WorkoutListController", ["$scope", WorkoutListController])
+    .controller("WorkoutDetailController", ["$scope", WorkoutDetailController]);
 
 })(window, window.angular);

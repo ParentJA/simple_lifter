@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Workout Detail</h4>
+  </div>
+  <div class="panel-body">
+    <h3>{{ selectedWorkout.name | title }}</h3>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Exercises</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="workoutExercise in selectedWorkout._workout_exercises">
+      <td>{{ workoutExercise._exercise.name | title }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

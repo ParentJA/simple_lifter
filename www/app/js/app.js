@@ -17,6 +17,11 @@
         url: "/exercises",
         templateUrl: "/static/views/exercises.html",
         controller: "ExerciseController"
+      })
+      .state("workouts", {
+        url: "/workouts",
+        templateUrl: "/static/views/workouts.html",
+        controller: "WorkoutController"
       });
 
     //Default state...

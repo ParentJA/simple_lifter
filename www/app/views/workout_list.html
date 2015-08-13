@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Workout List</h4>
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-hide="hasWorkouts()">
+      <td class="text-center" colspan="5">No workouts</td>
+    </tr>
+    <tr ng-repeat="workout in workouts"
+        ng-class="{active: isSelectedWorkout(workout)}"
+        ng-click="setSelectedWorkout(workout)"
+        ng-show="hasWorkouts()">
+      <td>{{ workout.name | title }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
